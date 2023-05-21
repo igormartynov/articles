@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Google I/O and the Coming AI Battles</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ba38e207-c72c-418c-885f-79d290cc5ac3" class="page sans"><header><h1 class="page-title"><strong>Google I/O and the Coming AI Battles</strong></h1></header><div class="page-body"><p id="8f11e206-a261-4482-ac28-5a2b79c83445" class="">
+</p><p id="9c2534dd-2f95-42fe-99fe-35f667a2f5be" class=""><time>@May 15, 2023 1:08 PM</time></p><p id="0196923c-fb29-4856-9fd1-339c58ec932d" class="">Some things in tech are shocking, but not surprising — think of a CEO of a struggling company losing their job. Sure, the news is unexpected, but it makes sense if you think about it. Other news, though, is shocking <em>and</em> surprising, and <a href="https://www.youtube.com/watch?v=yLWXJ22LUEc">Google’s February keynote in Paris</a> — which appeared to be <a href="https://stratechery.com/2023/google-and-microsofts-events-monetizable-panic-paradigms-and-hardware/">a panicked response to Microsoft’s GPT-powered Bing announcement</a> — was both.</p><p id="60d07c1d-8da9-474a-975e-774e5b26bfd6" class="">The shocking part was just how poor the presentation was: there was very little content that was new, the slides and speakers were out of sync, and the nadir came when one of the presenters started a demo and only then realized they didn’t have a phone to demo with.</p><p id="3281b3db-8c36-4d6b-97bf-0ff052351f90" class="">The surprise is that Google would be caught so far out of pocket about AI, and not just because AI would seem to be in Google’s sweet spot: in fact Google has been talking about AI at Google I/O in particular for years now, and I’ve consistently found the company’s framing of its work very impressive. Go back to 2016, when <a href="https://stratechery.com/2015/google-io-android-and-serving-the-world-photos-google-now-and-the-worlds-information-googles-turning-point/">I excerpted CEO Sundar Pichai’s long digression into how machine learning is used in its products</a> and wrote:</p><blockquote id="a5010b54-770a-431f-a15c-56d77001872f" class="">Note the specificity — it may seem too much for a keynote, but it is absolutely not BS. And no surprise: everything Pichai is talking about is exactly what Google was created to do. It’s no different than Ballmer exclaiming how much he loves Windows: that was the product representation of Microsoft’s mission, a perspective that perhaps grants the deposed CEO just a hint of grace for his inability to move on.<p id="3afcd00f-d703-4994-bb44-5583837522af" class="">The next 30 minutes were awesome: Google Now, particularly Now on Tap, was exceptionally impressive, and Google Photos looks amazing. And, I might add, it has a killer tagline: Gmail for Photos. It’s so easy to be clear when you’re doing exactly what you were meant to do, and what you are the best in the world at.</p></blockquote><p id="fba389b7-90c7-459f-b230-63d562ba0c17" class="">Two years later <a href="https://stratechery.com/2017/boring-google/">I called Google I/O boring</a>, and I meant it as a compliment:</p><blockquote id="a49561db-85ec-4da1-9aae-045a318aa1fe" class="">This is why I think that Pichai’s “boring” opening was a great thing. No, there wasn’t the belligerence of early Google I/Os, insisting that Android could take on the iPhone. And no, there wasn’t the grand vision of Nadella last week, or the excitement of an Apple product unveiling. What there was was a sense of certainty and almost comfort: Google is about organizing the world’s information, and given that Pichai believes the future is about artificial intelligence, specifically the machine learning variant that runs on data, that means that Google will succeed in this new world simply by being itself. That is the best place to be, for a person and for a company.</blockquote><p id="0a61bbc9-2935-4a3b-9698-20e3f0ea845d" class="">That was the year that Google invented the transformer, the key invention undergirding the large language models that power ChatGPT, the product that seemed to fluster Google so much over the past six months. What was impressive about this year’s Google I/O is that it managed to combine what was compelling about Google’s last several I/O’s — its clear AI capabilities and the products in which to manifest them — with the urgency and aggressiveness that are exactly what you would hope to see from a company feeling threatened for the first time in years.</p><h3 id="def23a3e-7c15-4740-8c81-89fd3e73cbd4" class=""><strong>Google’s AI Evolution</strong></h3><p id="1725c9f4-4fad-4581-8244-addab2ece5bc" class="">I noted above that Google introduced Google Photos as being Gmail for photos; two of my favorites slides from Pichai’s opening remarks showed how both products are evidence of Google’s evolving AI capabilities. Gmail evolved from “Smart Reply” to “Smart Compose” to “Help Me Write”:</p><figure id="1b09c577-c084-4403-b8e4-53b8fb4e0cd9" class="image"><a href="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-1.png?resize=640%2C383&amp;ssl=1"><img style="width:640px" src="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-1.png?resize=640%2C383&amp;ssl=1"/></a></figure><p id="bf324ef3-643a-4d9b-983f-9b0bcda389b3" class="">Google Photos evolved from “Find Photos” to “Magic Eraser” to “Magic Editor”:</p><figure id="18165e7a-7fde-4159-ba10-5dc52b7d60e9" class="image"><a href="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-2.png?resize=640%2C383&amp;ssl=1"><img style="width:640px" src="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-2.png?resize=640%2C383&amp;ssl=1"/></a></figure><p id="5e5267fe-3d67-4715-b983-d4af4d835eb4" class="">This was a very clever way to reinforce the idea that Google has been at this AI stuff for a while, and it’s true! It was also a reminder that one of Google’s big advantages mirrors Microsoft’s: the company has a bunch of user-facing products in which to surface AI capabilities in genuinely useful ways. Pichai noted that Google had 15 products with over 500 million users:</p><figure id="263c9537-a8ee-4eba-814b-3ffb716ff337" class="image"><a href="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-7.png?resize=640%2C383&amp;ssl=1"><img style="width:640px" src="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-7.png?resize=640%2C383&amp;ssl=1"/></a></figure><p id="958148a4-3500-447a-866b-9602deb11724" class="">And six products with 2 billion users:</p><figure id="23d33b38-15df-4c46-aade-80e3907bcf28" class="image"><a href="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-8.png?resize=640%2C383&amp;ssl=1"><img style="width:640px" src="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-8.png?resize=640%2C383&amp;ssl=1"/></a></figure><p id="e9103416-25c3-481a-8591-994b755c89b2" class="">Perhaps the most notable part of the keynote, though, was Pichai’s opening statement:</p><blockquote id="4177a8a4-dad8-49fb-81c1-413fd01ba077" class="">Seven years into our journey as an AI-first company, we’re at an exciting inflection point. We have an opportunity to make AI even more helpful for people, for businesses, for communities, for everyone. We’ve been applying AI to make our products radically more helpful for a while. With generative AI, we’re taking the next step. With a bold and responsible approach, we are re-imagining all of our core products, including search.</blockquote><p id="7238058e-ddf9-4eaf-9c85-275de0e1d6fd" class="">It seems notable that “responsible” was preceded by “bold”; the overriding message from Google I/O is that Google is in it to win it and, as Pichai noted, that includes search.</p><h3 id="26dab981-d033-4fbb-bdbf-d026e0b69c6e" class=""><strong>Generative AI and Search</strong></h3><p id="6d954d5f-df9a-471d-adba-5a43e03355b8" class="">After Google I/O 2019 — which I also found impressive — <a href="https://stratechery.com/2019/google-fights-back/">I raised the issue</a> of Google’s long-term business model:</p><blockquote id="6d460c38-6b18-4d9d-ad41-26e62bc0e741" class="">More importantly, while Google Assistant continues to impress — putting everything on device promises a major breakthrough in speed, a major limiting factor for Assistants today — it is not at all clear what Google’s business model is. It is hard to imagine anything as profitable as search ads, which benefit not only from precise targeting — the user explicitly says what they want! — but also an auction format that leverages the user to pick winners, and incentivizes those winners to overpay for the chance of forming an ongoing relationship with that user.</blockquote><p id="0a78687e-4ff8-4611-a031-340c2a843329" class="">Google, <a href="https://stratechery.com/2023/more-on-google-and-ai-openai-integration-and-microsoft/">as I expected</a>, is taking a hybrid approach: most searches are not commercial, and so Google is going to place generated text right at the top:</p><figure id="bd0e2dc2-d21d-4c9d-a3d4-aba2ecf88b77" class="image"><a href="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-5.png?resize=640%2C383&amp;ssl=1"><img style="width:640px" src="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-5.png?resize=640%2C383&amp;ssl=1"/></a></figure><p id="57909a0e-60e7-44ce-9bc3-991a2213d6b1" class="">For searches that do have commercial possibilities, ads will still get top billing:</p><figure id="26b56a1f-0186-4664-8abd-fa867363df38" class="image"><a href="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-6.png?resize=640%2C383&amp;ssl=1"><img style="width:640px" src="https://i0.wp.com/stratechery.com/wp-content/uploads/2023/05/googleaiwar-6.png?resize=640%2C383&amp;ssl=1"/></a></figure><p id="7a4e3c6d-116c-4902-9f7a-61759d1ce7c0" class="">This seems like a reasonable approach, aided by the fact that non-commercial searches are probably more likely to benefit from AI anyways; this is also an approach that already looks more compelling and yes, bold, than Microsoft’s grafting on of Bing Chat to the side of traditional search.</p><p id="7b8a9212-520d-4461-a154-8c81c2ab7727" class="">Of course Microsoft has actually launched its new search experience, and <a href="https://www.wsj.com/video/series/joanna-stern-personal-technology/bing-with-ai-microsoft-ceo-satya-nadella-on-why-search-is-changed-forever/FD2170DD-F431-49A2-8BF9-11FCF5665C3C">Satya Nadella’s eagerness to chip away at both Google’s marketshare and its margins</a> remains a threat: generating these answers costs money, and Google’s models <a href="https://www.youtube.com/watch?v=cdb-UD_MbKQ">may still trail GPT-4 on an apples-to-apples basis</a>. Still, this demo specifically and this year’s Google I/O generally are a pretty strong response to what Sam Altman told me in <a href="https://stratechery.com/2023/new-bing-and-an-interview-with-kevin-scott-and-sam-altman-about-the-microsoft-openai-partnership/">a Stratechery Interview after Bing’s launch</a>:</p><blockquote id="c8821b52-8e5c-47d3-b00a-eb264aa1b58c" class="">I think it’s fabulous for both of us. I think there’s so much upside for both of us here. We’re going to discover what these new models can do, but if I were sitting on a lethargic search monopoly and had to think about a world where there was going to be a real challenge to the way that monetization of this works and new ad units, and maybe even a temporary downward pressure, I would not feel great about that.</blockquote><p id="67bc7dc0-1232-4188-9ab4-b1815418850f" class="">Those challenges remain, but at least the “lethargic search monopoly” has woken up.</p><h3 id="6c3e6010-15f2-4a05-9a2d-5958496596ee" class=""><strong>Sustaining and Disruptive Innovation</strong></h3><p id="1b7b4415-2872-464d-9727-7077a369485b" class="">If there is one thing everyone is sure about, it is that AI is going to be very disruptive; in January’s <a href="https://stratechery.com/2023/ai-and-the-big-five/">AI and the Big Five</a>, though, I noted that it seemed more likely that AI would be a sustaining innovation:</p><blockquote id="3a76c472-8cf1-49d2-85bf-d3cd84060697" class="">The story of 2022 was the emergence of AI, first with image generation models, including DALL-E, MidJourney, and the open source Stable Diffusion, and then ChatGPT, the first text-generation model to break through in a major way. It seems clear to me that this is a new epoch in technology.<p id="4946bcdf-b38f-42af-8c5f-e2b369e6cd26" class="">To determine how that epoch might develop, though, it is useful to look back 26 years to one of the most famous strategy books of all time: Clayton Christensen’s <a href="http://claytonchristensen.com/books/the-innovators-dilemma/">The Innovator’s Dilemma</a>, particularly this passage on the different kinds of innovations:</p><blockquote id="db7b027e-f8c5-4b45-ba40-009a0fe99350" class="">Most new technologies foster improved product performance. I call these sustaining technologies. Some sustaining technologies can be discontinuous or radical in character, while others are of an incremental nature. What all sustaining technologies have in common is that they improve the performance of established products, along the dimensions of performance that mainstream customers in major markets have historically valued. Most technological advances in a given industry are sustaining in character…Disruptive technologies bring to a market a very different value proposition than had been available previously. Generally, disruptive technologies underperform established products in mainstream markets. But they have other features that a few fringe (and generally new) customers value. Products based on disruptive technologies are typically cheaper, simpler, smaller, and, frequently, more convenient to use.</blockquote><p id="c38451e1-c0b6-4b81-a70b-fdaf6591e6e8" class="">It seems easy to look backwards and determine if an innovation was sustaining or disruptive by looking at how incumbent companies fared after that innovation came to market: if the innovation was sustaining, then incumbent companies became stronger; if it was disruptive then presumably startups captured most of the value.</p></blockquote><p id="08fd0483-82f2-4b74-9c38-c2817d1055fa" class="">My conclusion in that Article was that AI would be a sustaining innovation for Apple, Amazon, Meta, and Microsoft; the big question was Google and search:</p><blockquote id="667c4817-96b2-42af-b0d4-1604bde484c3" class="">That Article assumed that Google Assistant was going to be used to differentiate Google phones as an exclusive offering; that ended up being wrong, but the underlying analysis remains valid. Over the past seven years Google’s primary business model innovation has been to cram ever more ads into Search, a particularly effective tactic on mobile. And, to be fair, the sort of searches where Google makes the most money — travel, insurance, etc. — may not be well-suited for chat interfaces anyways.<p id="2355e314-8d29-4ae2-92b5-7fbaf1c0d7cc" class="">That, though, ought only increase the concern for Google’s management that generative AI may, in the specific context of search, represent a disruptive innovation instead of a sustaining one. Disruptive innovation is, at least in the beginning, not as good as what already exists; that’s why it is easily dismissed by managers who can avoid thinking about the business model challenges by (correctly!) telling themselves that their current product is better. The problem, of course, is that the disruptive product gets better, even as the incumbent’s product becomes ever more bloated and hard to use — and that certainly sounds a lot like Google Search’s current trajectory.</p><p id="87f20025-81ef-40fc-b25d-e0263333216d" class="">I’m not calling the top for Google; <a href="https://stratechery.com/2014/peak-google/">I did that previously</a> and was <a href="https://stratechery.com/2019/the-google-squeeze/">hilariously wrong</a>. Being wrong, though, is more often than not a matter of timing: yes, Google has its cloud and YouTube’s dominance only seems to be increasing, but the outline of Search’s peak seems clear even if it throws off cash and profits for years.</p></blockquote><p id="2fbcf299-5dba-4e5f-9b87-ce5642515cd0" class="">Or maybe not. I tend to believe that disruptive innovations are actually quite rare, but when they come, they are basically impossible for the incumbent company to respond to: their business models, shareholders, and most important customers make it impossible for management to respond. If that is true, though, then an incumbent responding is in fact evidence that an innovation is actually not disruptive, but sustaining.</p><p id="b60c7593-a4a0-4674-bd8e-132587e91de6" class="">To that end, I take this Google I/O as evidence that AI is in fact a sustaining technology for all of Big Tech, including Google. Moreover, if that is the case, then that is a reason to be less bearish on the search company, because all of the reasons to expect them to have a leadership position — from capabilities to data to infrastructure to a plethora of consumer touch points — remain. Still, the challenges facing search as presently constructed — particularly its ad model — remain.</p><h3 id="f2ffb99a-84fd-458f-8dd4-7d82eb32ffc6" class=""><strong>Revolution or Alignment</strong></h3><p id="5ef40f51-1f84-409c-a50b-f052872fb845" class="">Another question I have been puzzling over is if AI is a Technological Revolution of the sort <a href="http://reactionwheel.net/2015/10/the-deployment-age.html">chronicled by Carlota Perez</a> in <a href="http://www.carlotaperez.org/pubs?s=tf&amp;l=en&amp;a=technologicalrevolutionsandfinancialcapital">Technological Revolutions and Financial Capital</a>.</p><p id="48d4f1c0-b85a-49cd-9f87-9cf91b8ff042" class="">Once again, the conventional wisdom is that AI represent an entirely new paradigm; no less a luminary than <a href="https://www.gatesnotes.com/The-Age-of-AI-Has-Begun">Bill Gates wrote</a>:</p><blockquote id="6c680a14-1bca-46c5-a66d-0aa2b30fdb56" class="">The development of AI is as fundamental as the creation of the microprocessor, the personal computer, the Internet, and the mobile phone. It will change the way people work, learn, travel, get health care, and communicate with each other. Entire industries will reorient around it. Businesses will distinguish themselves by how well they use it…<p id="7513c79f-9302-4665-b93d-0db8bead725f" class="">I’m lucky to have been involved with the PC revolution and the Internet revolution. I’m just as excited about this moment. This new technology can help people everywhere improve their lives. At the same time, the world needs to establish the rules of the road so that any downsides of artificial intelligence are far outweighed by its benefits, and so that everyone can enjoy those benefits no matter where they live or how much money they have. The Age of AI is filled with opportunities and responsibilities.</p></blockquote><p id="e9cedad3-b2d2-4403-b487-ad9d2ca0421a" class="">Gates insinuates that the PC revolution, the Internet revolution, and the AI revolution are discrete events, but they can also be viewed as three applications of the defining economic feature of digitization — zero marginal costs — to information:</p><ul id="de62f1b8-df6d-4e6d-ac85-4bc1e3c8d56e" class="bulleted-list"><li style="list-style-type:disc">The PC allowed for zero marginal cost duplication of information; this is what undergirded breakthroughs like word processors and spreadsheets and the other productivity applications Gates specialized in.</li></ul><ul id="584451bd-7e29-4894-9c2f-43ebf1f53920" class="bulleted-list"><li style="list-style-type:disc">The Internet allows for zero marginal cost distribution of information. This led to markets based on abundance, not scarcity, giving rise to <a href="https://stratechery.com/2015/aggregation-theory/">Aggregators</a> like Google.</li></ul><ul id="da797f31-577b-4891-a825-ab9128e1bc85" class="bulleted-list"><li style="list-style-type:disc">AI is zero marginal cost generation of information (well, nearly zero, relative to humans). As <a href="https://stratechery.com/2022/the-ai-unbundling/">I wrote last year</a> generative models unbundle idea creation from idea substantiation, which can then be duplicated and distributed at zero marginal cost.</li></ul><p id="3c0e3bc4-0b1b-4a09-95cd-2e5bd61d68d3" class="">Moreover, these three revolutions had to come in the order they did: the very concept of the Internet doesn’t make sense without there being disparate computers, and these AI models are trained on the Internet.</p><p id="46481ed2-b334-4782-891d-e58843cac985" class="">I would also note that this progression is in-line with the argument I made in 2020’s <a href="https://stratechery.com/2020/the-end-of-the-beginning/">The End of the Beginning</a>: my argument in that Article is that the various tech revolutions were all manifestations of the same trend towards continuous computing everywhere; I didn’t mention AI in that Article, but the fact that AI appears to be a sustaining innovation supports the idea that the big winners of tech’s beginning will be the foundation of what happens in tech in the future.</p><p id="83e493cf-80a1-4bd7-aadb-2b2213c33539" class="">Perez for her part <a href="https://twitter.com/CarlotaPrzPerez/status/1112397085729533958">has argued</a> that the current revolution is still in the installation phase (I lay out her argument <a href="https://stratechery.com/2021/the-death-and-birth-of-technological-revolutions/">in this Article</a>); for her the missing ingredient is coordination with and by governments.</p><h3 id="91f04373-f52d-477f-969b-192ccf8d9e94" class=""><strong>Bard and the E.U.</strong></h3><p id="1327b372-18f6-40e5-a7a9-963ba0447aa1" class="">One of Google’s other I/O announcements was <a href="https://techcrunch.com/2023/05/10/google-ends-bard-waitlist-making-english-version-of-chatbot-widely-available/">the widespread availability of Bard</a>, its ChatGPT competitor. The more interesting news was where it was <em>not</em>available; from <a href="https://www.androidauthority.com/google-bard-eu-canada-3324214/">Android Authority</a>:</p><blockquote id="11d172ed-9491-4634-a226-bec6e9b8453e" class="">Google announced at its I/O developer conference that its Bard chatbot would be broadly available in 180 markets. It marks a major expansion for the platform, which saw a very limited release at first. Canada and Europe are missing from the list of supported markets, though. Now, Google has hinted at a possible reason for these omissions in an emailed response to an Android Authority query. A Google spokesperson noted the following:<blockquote id="c11a7da0-8eb5-4f61-86d5-b7458d56a74b" class="">Bard will soon be able to support the 40 top languages, and while we haven’t finalized the timeline for expansion plans, we will roll it out gradually and responsibly, and continue to be a helpful and engaged partner to regulators as we navigate these new technologies together.</blockquote><p id="d8619e68-5e04-4f8f-a95a-872c52d76ac5" class="">The company’s assertion that it was a “helpful and engaged partner to regulators” suggests that Bard is skipping the E.U. and Canada for now due to regulatory concerns.</p></blockquote><p id="9b012db4-dc31-4e5a-adf5-fc4f5e749cc2" class="">Once again there is a conventional wisdom take: “Haha silly Europe and its regulations means it will miss out on AI”, and, for now, that’s obviously true. It seems like a safe bet, though, that Google and Microsoft and Meta and other tech giants will indeed be a “helpful and engaged partner to regulators” to their ultimate benefit. After all, consider what those regulations might look like, starting with Canada and this bit from that same article:</p><blockquote id="0eb074d3-53a7-4c75-8b23-4b06c74fde2c" class="">Canadian lawmakers recently introduced legislation aimed at regulating AI. The Artificial Intelligence and Data Act (AIDA) mandates assessments, risk management, monitoring, data anonymization, transparency, and record-keeping practices around AI systems. AIDA would also introduce penalties of up to 3% of a company’s global revenue or $10 million.</blockquote><p id="32a465ab-a3a1-461b-9df9-d849529e1c8a" class="">That is a lot of red tape that will certainly be annoying for Google et al to manage, but also eminently manageable given their scale and resources; <a href="https://www.cnbc.com/2023/05/15/eu-ai-act-europe-takes-aim-at-chatgpt-with-landmark-regulation.html">a proposed AI law in the E.U.</a> will have an even larger regulatory load.</p><p id="e2df7331-400e-4190-a8f2-7f5e423f735d" class="">What is notable is that the technological arc I traced above is bending towards more government control: PCs granted incredible freedom and capabilities to individuals, but the Internet’s devolvement into Aggregator-mediated networks gave governments distinct chokepoints on which to push for control of distribution, whether that be explicit as in China or implicit as in much of the West. AI, meanwhile, to the extent it is centralized in the major players, means there are direct loci of control on the actual generation of information.</p><p id="a529c495-3e66-43ea-a118-8225c0b4f285" class="">This gives credence to Perez’s argument that the IT revolution has not yet achieved government alignment: it just wasn’t structurally possible previously. Whether said alignment does in fact mean an imminent “Golden Era” as Perez forecasts remains to be seen. What is worth noting is that it is very much in Google’s interest that this alignment becomes concrete: the best way to forestall truly disruptive technologies is to regulate them away.</p><h3 id="bc27834f-54a4-45cd-bc02-ab90683f91f2" class=""><strong>The AI Radical Reformation</strong></h3><p id="f816a5cf-1da3-4f30-a234-904403656879" class="">There is another aspect of the E.U. regulations that seems a bit more sinister. From <a href="https://technomancers.ai/eu-ai-act-to-target-us-open-source-software/">Technomancers.ai</a>:</p><blockquote id="c0467be8-0833-4c68-8a39-d30da75dfd7d" class="">In a bold stroke, the E.U.’s amended AI Act would ban American companies such as OpenAI, Amazon, Google, and IBM from providing API access to generative AI models. The amended act, voted out of committee on Thursday, would sanction American open-source developers and software distributors, such as GitHub, if unlicensed generative models became available in Europe. While the act includes open source exceptions for traditional machine learning models, it expressly forbids safe-harbor provisions for open source generative systems.<p id="e9f894db-2bb8-4b03-9c3f-3ad10c5dd556" class="">Any model made available in the E.U., without first passing extensive, and expensive, licensing, would subject companies to massive fines of the greater of €20,000,000 or 4% of worldwide revenue. Opensource developers, and hosting services such as GitHub – as importers – would be liable for making unlicensed models available. The E.U. is, essentially, ordering large American tech companies to put American small businesses out of business – and threatening to sanction important parts of the American tech ecosystem.</p><p id="cd51b341-ac93-4e77-a0e9-01f5354262f7" class="">If enacted, enforcement would be out of the hands of E.U. member states. Under the AI Act, third parties could sue national governments to compel fines. The act has extraterritorial jurisdiction. A European government could be compelled by third parties to seek conflict with American developers and businesses.</p></blockquote><p id="c4f821fd-52d4-4dd9-9a51-029ca60b5ccc" class="">This is a pretty explosive allegation, but Delos Prime, the author, backs it up with citations to <a href="https://www.europarl.europa.eu/meetdocs/2014_2019/plmrep/COMMITTEES/CJ40/DV/2023/05-11/ConsolidatedCA_IMCOLIBE_AI_ACT_EN.pdf">the proposed law</a>, and I think it’s a reasonable interpretation. As is ever the case with proposals like this, there isn’t explicit language about, say, banning API access; rather, Prime’s conclusion is that that is the effective outcome of, for example, API providers being made liable for all uses of their API, just as open source authors and distributors would be held liable for all uses of their models.</p><p id="3de6afc6-ef16-4704-b56c-447ce4af3fa2" class="">The question of how the U.S. would respond to such a law is obviously a hugely important one: there is a case to be made that making U.S. companies liable for simply open-sourcing models is a flagrant violation of sovereignty; I’m sure the E.U. would argue that U.S. Internet companies effectively exporting U.S. values like free speech was the exact same thing.</p><p id="9f86c484-fcd8-4ccb-ac07-83099277f451" class="">This is where history is interesting to consider, particularly the invention that I have long held is most analogous to the Internet: the printing press. I wrote in <a href="https://stratechery.com/2019/the-internet-and-the-third-estate/">The Internet and the Third Estate</a>:</p><blockquote id="772afbae-dcb4-4d5d-86ca-3d077f32c9f5" class="">In the Middle Ages the principal organizing entity for Europe was the Catholic Church. Relatedly, the Catholic Church also held a de facto monopoly on the distribution of information: most books were in Latin, copied laboriously by hand by monks. There was some degree of ethnic affinity between various members of the nobility and the commoners on their lands, but underneath the umbrella of the Catholic Church were primarily independent city-states.<p id="1b3cd9c9-19e9-4240-9a3e-236f578a683b" class="">The printing press changed all of this. Suddenly Martin Luther, whose critique of the Catholic Church was strikingly similar to Jan Hus 100 years earlier, was not limited to spreading his beliefs to his local area (Prague in the case of Hus), but could rather see those beliefs spread throughout Europe; the nobility seized the opportunity to interpret the Bible in a way that suited their local interests, gradually shaking off the control of the Catholic Church.</p><p id="90224eb0-a2cf-47ca-9cb7-116535ecfd02" class="">Meanwhile, the economics of printing books was fundamentally different from the economics of copying by hand. The latter was purely an operational expense: output was strictly determined by the input of labor. The former, though, was mostly a capital expense: first, to construct the printing press, and second, to set the type for a book. The best way to pay for these significant up-front expenses was to produce as many copies of a particular book that could be sold.</p><p id="20363bd2-c170-483f-8f0a-c81bc2d36813" class="">How, then, to maximize the number of copies that could be sold? The answer was to print using the most widely used dialect of a particular language, which in turn incentivized people to adopt that dialect, standardizing language across Europe. That, by extension, deepened the affinities between city-states with shared languages, particularly over decades as a shared culture developed around books and later newspapers. This consolidation occurred at varying rates — England and France several hundred years before Germany and Italy — but in nearly every case the First Estate became not the clergy of the Catholic Church but a national monarch, even as the monarch gave up power to a new kind of meritocratic nobility epitomized by Burke.</p></blockquote><p id="ace3731f-ba2f-4c85-b98e-2fa0519bdcf6" class="">The culmination of this upheaval was the <a href="https://en.wikipedia.org/wiki/Peace_of_Westphalia">Peace of Westphalia</a>, from whence we get the name <a href="https://en.wikipedia.org/wiki/Westphalian_system">Westphalian System</a>; to quote Wikipedia:</p><blockquote id="f506d81d-5e8e-465c-bf97-04c5eb09a215" class="">The Westphalian system is the political order in international law that each state has exclusive sovereignty over its territory and are the monopolists of the ability to conduct warfare. The principle developed in Europe after the Peace of Westphalia in 1648, based on the state theory of Jean Bodin and the natural law teachings of Hugo Grotius. It underlies the modern international system of sovereign states and is enshrined in the United Nations Charter, which states that “nothing … shall authorize the United Nations to intervene in matters which are essentially within the domestic jurisdiction of any state.”</blockquote><p id="12b53def-aba6-436f-a4bf-2011a20a19a7" class="">The Westphalian system faces any number of challenges, from globalization to humanitarian interventions to the Internet. The E.U.’s attempts to regulate AI are a perfect example: given there are no borders on the Internet — outside the Great Firewall, anyways</p><p id="f3109ec6-2d14-4154-9209-4bcec09f1456" class="">— the E.U. appears poised to hold American companies liable for models released on U.S. servers; in the case of Google, it has, for now, found it prudent to unilaterally not serve the E.U., lest it face</p><p id="7b2dffda-8bd8-4f1c-a776-1c16f51a1f7c" class=""><a href="https://www.theverge.com/2023/5/5/23709833/openai-chatgpt-gdpr-ai-regulation-europe-eu-italy">the same challenges confronting OpenAI</a></p><p id="6883dac4-d3b2-4e12-aa7d-462e2cdab30a" class="">.</p><p id="a9982c07-8abc-467c-ac8d-33cdb39afd88" class="">This fight can, in a sense, be analogized to the Protestant and Catholic battles in Europe; in this case U.S. tech companies are the universal Internet, while Europe is seeking to protect its sovereignty. Or, perhaps, you prefer the opposite analogy, wherein Europe is seeking to export its beliefs to the rest of the world and, given the economic incentives towards having one product everywhere, very well may succeed (see cookie banners).</p><p id="ffbd36b0-d10c-4bf7-834a-0d2edec05e61" class="">The open source part, though, is distinct: open source models running locally might be a big boon <a href="https://stratechery.com/2022/lensa-and-stable-diffusion-stable-diffusion-and-apple-silicon-open-questions/">to Apple</a>, but they are the truly disruptive threat to centralized companies like Google and OpenAI. In other words, they are a third force, distinct from regulators and centralized operators; they are the <a href="https://en.wikipedia.org/wiki/Radical_Reformation">Radical Reformation</a>.</p><p id="5b785a5b-6250-4f1e-9517-69ec61c1a159" class="">This thought occurred to me while reading <a href="https://twitter.com/owenbroadcast/status/1650255348928765953">this fascinating thread</a> from Owen Cyclops about American religion. It’s hard to find one single tweet to capture the thread, but Cyclops’ point is that the printing press led to three distinct religious groups: the Catholics, the Protestants, and then a whole host of fringe groups that were persecuted by both, and which, by extension, played a prominent role in American history.</p><p id="d14dbeb9-30de-4d25-a3f5-c7f93293f786" class="">In this view the application of the printing press’s impact to the formation of modern Europe is incomplete; you also have to consider the fringe, which is to say the United States.</p><p id="4c33fe03-69de-4158-a538-bda478320812" class="">And, by extension, if the digital transformation, from PC to Internet to AI, is of similar impact to the printing press, then the question at hand is not simply the nature of nation states going forward, but also the potential on the fringe.</p><hr id="17c62cc7-51aa-4942-b203-4150b697419b"/><p id="e6fde93d-33f9-48d5-a8eb-2489e7883a83" class="">This is, admittedly, a rather speculative and far-reaching Article, particularly given I started with Google I/O. I think it is meaningful, though, that Google made clear it views AI as a sustaining innovation, and that it intends to fully implement generative AI across its business, including search. Of course that means there are battles to come within that context: the aggressiveness and competitiveness we’ve seen from these large tech companies is a refreshing change from the stasis of the previous decade.</p><p id="b1d6a6e5-3d36-4cca-a657-696c0e421d89" class="">At the same time, the fact that all of Big Tech is on board and, given their supranational nature, will inevitably be incentivized to be a “helpful and engaged partner to regulators”, suggests that the true fight will be between centralized models and open source: the universal Catholic church and national religion Protestants had their conflicts, but they were unified in their disdain for the Anabaptists et al.</p><p id="1faa9663-a8d2-4612-8dff-ce613bfeb7ed" class="">In this view these proposed E.U. regulations are simply the first salvo in what may be the defining war of the digital era: will centralized — and thus controllable — entities win, or will there be a flowering on the fringe of open models that truly explore the potential of AI, for better or for worse.</p></div></article></body></html>
